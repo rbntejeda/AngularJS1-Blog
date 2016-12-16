@@ -1,1 +1,5 @@
-photos
+<input type="text" class="form-control" placeholder="Type here to search" ng-model="searchText">
+<div class="col-md-3" ng-repeat="model in models | filter:searchText | limitTo:16">
+	<p class="lead" ng-bind="model.title | limitTo:12"></p>
+	<img src="{{model.thumbnailUrl}}" alt="{{model.title}}" class="img-rounded">
+</div>

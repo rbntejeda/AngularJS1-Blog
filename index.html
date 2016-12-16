@@ -33,16 +33,16 @@
   	<div class="col-md-3">
 		<div class="well sidebar-nav">
 			<ul class="nav nav-list">
-				<li class="nav-header">Usuario</li>
-				<li><a href="#/User/Create">Crear</a></li>
-				<li><a href="#/User/List">Administrar</a></li>
+				<li class="nav-header">Posts</li>
+				<li><a href="#/Post/Create">Crear</a></li>
+				<li><a href="#/Post/List">Administrar</a></li>
 			</ul>				
 		</div>
 		<div class="well sidebar-nav">
 			<ul class="nav nav-list">
-				<li class="nav-header">Posts</li>
-				<li><a href="#/Post/Create">Crear</a></li>
-				<li><a href="#/Post/List">Administrar</a></li>
+				<li class="nav-header">Comments</li>
+				<li><a href="#/Comment/Create">Crear</a></li>
+				<li><a href="#/Comment/List">Administrar</a></li>
 			</ul>				
 		</div>
 		<div class="well sidebar-nav">
@@ -59,14 +59,42 @@
 				<li><a href="#/Photos/List">Administrar</a></li>
 			</ul>				
 		</div>
+		<div class="well sidebar-nav">
+			<ul class="nav nav-list">
+				<li class="nav-header">Usuario</li>
+				<li><a href="#/User/Create">Crear</a></li>
+				<li><a href="#/User/List">Administrar</a></li>
+			</ul>				
+		</div>
   	</div>
   	<div class="col-md-9" ng-view></div>
   </div>
 </div>
+<!-- base angular -->
 <script src="lib/angular/1.5.9/angular.min.js"></script>
 <script src="lib/angular/1.5.9/angular-route.min.js"></script>
 <script src="js/app.js"></script>
-<script src="js/controller/ListUsersController.js"></script>
+<!-- Post -->
+<script src="js/controller/Post/CreatePostController.js"></script>
+<script src="js/controller/Post/ListPostController.js"></script>
+<script src="js/services/PostResource.js"></script>
+<!-- Comment -->
+<script src="js/controller/Comment/CreateCommentController.js"></script>
+<script src="js/controller/Comment/ListCommentsController.js"></script>
+<script src="js/services/CommentResource.js"></script>
+<!-- Album -->
+<script src="js/controller/Album/CreateAlbumController.js"></script>
+<script src="js/controller/Album/ListAlbumsController.js"></script>
+<script src="js/services/AlbumResource.js"></script>
+<!-- Photo -->
+<script src="js/controller/Photo/CreatePhotoController.js"></script>
+<script src="js/controller/Photo/ListPhotosController.js"></script>
+<script src="js/services/PhotoResource.js"></script>
+<!-- User -->
+<script src="js/controller/User/CreateUserController.js"></script>
+<script src="js/controller/User/ListUsersController.js"></script>
 <script src="js/services/UserResource.js"></script>
+<!-- api -->
+<script src="js/services/WebApiConfig.js"></script>
 </body>
 </html>

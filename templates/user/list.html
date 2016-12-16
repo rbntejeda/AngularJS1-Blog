@@ -1,6 +1,7 @@
 <div class="page-header">
 	<h1>Administrar <small>Usuarios</small></h1>
 </div>
+<input type="text" class="form-control" placeholder="Type here to search" ng-model="searchText">
 <table class="table table-hover table-condensed">
 	<thead>
 		<tr>
@@ -8,12 +9,10 @@
 		</tr>
 	</thead>
 	<tbody>
-		<tr ng-repeat="user in users">
+		<tr ng-repeat="user in users | filter:searchText">
 			<td>{{user.name}}</td>
 			<td>{{user.username}}</td>
 			<td>{{user.email}}</td>
 		</tr>
 	</tbody>
-</table>
-<table class="table table-condensed">
 </table>
