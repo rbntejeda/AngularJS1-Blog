@@ -1,1 +1,20 @@
-albums
+<div class="page-header">
+	<h1>Administrar <small>Albums</small></h1>
+</div>
+<input type="text" class="form-control" placeholder="Type here to search" ng-model="searchText">
+<table class="table table-hover table-condensed">
+	<thead>
+		<tr>
+			<th>#</th>
+			<th>Titulo</th>
+			<th>Usuario</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="album in albums | filter:searchText">
+			<td>{{album.id}}</td>
+			<td>{{album.title}}</td>
+			<td>{{album.username}}</td>
+		</tr>
+	</tbody>
+</table>
