@@ -15,7 +15,7 @@ var appBlog = angular.module('appBlog', ['ngRoute'])
 			resolve: {
 				users : function(userResource) {
 					return userResource.getAll();
-				}
+				}				
 			}
 		})		
 		//Comment
@@ -27,22 +27,34 @@ var appBlog = angular.module('appBlog', ['ngRoute'])
 			templateUrl : 'templates/comments/list.html',
 			controller : 'ListCommentsController',
 			resolve: {
-				models : function(commentResource) {
+				comments : function(commentResource) {
 					return commentResource.getAll();
+				},
+				posts : function(postResource) {
+					return postResource.getAll();
 				}
 			}
 		})
 		//Post
 		.when('/Post/Create', {
 			templateUrl : 'templates/post/form.html',
-			controller : 'CreatePostController'
+			controller : 'CreatePostController',
+			resolve: {
+				users : function(userResource) {
+					return userResource.getAll();
+				}				
+			}
+
 		})
 		.when('/Post/List', {
 			templateUrl : 'templates/post/list.html',
 			controller : 'ListPostController',
 			resolve: {
-				models : function(postResource) {
+				posts : function(postResource) {
 					return postResource.getAll();
+				},
+				users : function(userResource) {
+					return userResource.getAll();
 				}
 			}
 		})
@@ -55,22 +67,28 @@ var appBlog = angular.module('appBlog', ['ngRoute'])
 			templateUrl : 'templates/albums/list.html',
 			controller : 'ListAlbumsController',
 			resolve: {
-				models : function(albumResource) {
+				albums : function(albumResource) {
 					return albumResource.getAll();
+				},
+				users : function(userResource) {
+					return userResource.getAll();
 				}
 			}
 		})
 		//Albums
 		.when('/Photos/Create', {
 			templateUrl : 'templates/photos/form.html',
-			controller : 'CreateAlbumController'
+			controller : 'CreatePhotoController'
 		})
 		.when('/Photos/List', {
 			templateUrl : 'templates/photos/list.html',
-			controller : 'ListAlbumsController',
+			controller : 'ListPhotosController',
 			resolve: {
-				models : function(photoResource) {
+				photos : function(photoResource) {
 					return photoResource.getAll();
+				},
+				albums : function(albumResource) {
+					return albumResource.getAll();
 				}
 			}
 		})
