@@ -1,6 +1,6 @@
 'use strict';
 // define el primeraApp modulo
-var appBlog = angular.module('appBlog', ['ngRoute'])
+var appBlog = angular.module('appBlog', [/*'ui.bootstrap',*/'ngRoute'])
 	.config(function($routeProvider) {
 
 		// User
@@ -21,7 +21,12 @@ var appBlog = angular.module('appBlog', ['ngRoute'])
 		//Comment
 		.when('/Comment/Create', {
 			templateUrl : 'templates/comments/form.html',
-			controller : 'CreateCommentController'
+			controller : 'CreateCommentController',
+			resolve: {
+				posts : function(postResource) {
+					return postResource.getAll();
+				}
+			}
 		})
 		.when('/Comment/List', {
 			templateUrl : 'templates/comments/list.html',
@@ -61,7 +66,12 @@ var appBlog = angular.module('appBlog', ['ngRoute'])
 		//Albums
 		.when('/Albums/Create', {
 			templateUrl : 'templates/albums/form.html',
-			controller : 'CreateAlbumController'
+			controller : 'CreateAlbumController',
+			resolve: {
+				users : function(userResource) {
+					return userResource.getAll();
+				}				
+			}
 		})
 		.when('/Albums/List', {
 			templateUrl : 'templates/albums/list.html',
@@ -75,7 +85,7 @@ var appBlog = angular.module('appBlog', ['ngRoute'])
 				}
 			}
 		})
-		//Albums
+		//Photos
 		.when('/Photos/Create', {
 			templateUrl : 'templates/photos/form.html',
 			controller : 'CreatePhotoController'
@@ -93,6 +103,6 @@ var appBlog = angular.module('appBlog', ['ngRoute'])
 			}
 		})
 	    .otherwise({
-        	template : "La pagina no existe"
+        	template : "La pagina no existe :("
    		});
 	});

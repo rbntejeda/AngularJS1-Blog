@@ -1,5 +1,15 @@
 'use strict';
-appBlog.controller('CreateAlbumController', function($scope, userResource, $route){
-		// $scope.users = $route.current.locals.users;
-		// console.log($route.current.locals.users);
+appBlog.controller('CreateAlbumController', function($scope, albumResource, $route, $location){
+	$scope.users = $route.current.locals.users.data;
+	$scope.album = { };
+
+	$scope.saveAlbum = function() {
+		albumResource.save($scope.album)
+			.then(function(response) {
+				$location.path('/Albums/List');
+			})
+			.catch(function(response) {
+				console.log(response);
+			})
+	};
 });

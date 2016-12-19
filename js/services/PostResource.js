@@ -3,13 +3,15 @@
 appBlog.factory('postResource', function($http, webApiConfig){
 
 	var apiHost = webApiConfig.getApiUrl();
+	var base='posts';
 
 	return {
 		getAll : function() {
-			return $http.get(apiHost + 'posts');
+			return $http.get(apiHost + base);
 		},
-		save : function(post) {
-			return $http.post(apiHost + 'users', post);
+		save : function(model) {
+			console.log(model);
+			return $http.post(apiHost + base, model);
 		}
 	};
 })

@@ -1,5 +1,14 @@
 'use strict';
-appBlog.controller('CreateUserController', function($scope, userResource, $route){
-		// $scope.users = $route.current.locals.users;
-		// console.log($route.current.locals.users);
+appBlog.controller('CreateUserController', function( $scope, userResource, $route, $location){
+	$scope.user;
+
+	$scope.save = function(){
+		userResource.save($scope.user).
+			then(function(response){
+				$location.path('/User/List');
+			}).
+			catch(function(response){
+
+			})
+	};
 });

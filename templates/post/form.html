@@ -7,7 +7,6 @@
 	<div class="form-group" ng-class="{
 		'has-error' : createPostForm.postName.$dirty && createPostForm.postName.$invalid,
 		'has-success' : createPostForm.postName.$valid
-
 	}">
 		<label>Titulo</label>
 		<input ng-model="post.title" name="postName" type="text" class="form-control" placeholder="Titulo" required="required"> 
@@ -19,6 +18,7 @@
 	<div class="form-group">
 		<label>Usuario</label>
 		<select ng-model="post.userId"  class="form-control" required="required">
+			<option value="">Seleccione ...</option>
 			<option ng-repeat="user in users" value="{{user.id}}">
 				{{user.name}}
 			</option>
