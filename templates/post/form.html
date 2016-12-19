@@ -3,15 +3,27 @@
 </div>
 <div class="col-md-6">
 	
-<form>
-	<div class="form-group">
+<form name="createPostForm">
+	<div class="form-group" ng-class="{
+		'has-error' : createPostForm.postName.$dirty && createPostForm.postName.$invalid,
+		'has-success' : createPostForm.postName.$valid
+
+	}">
 		<label>Titulo</label>
-		<input type="text" class="form-control" placeholder="Nombre" required="required"> 
+		<input ng-model="post.title" name="postName" type="text" class="form-control" placeholder="Titulo" required="required"> 
 	</div>
 	<div class="form-group">
 		<label>Comentario</label>
-		<textarea class="form-control" rows="3" placeholder="Comentario" required="required"></textarea>
+		<textarea ng-model="post.body" class="form-control" rows="3" placeholder="Comentario" required="required"></textarea>
 	</div>
-  <button type="submit" class="btn btn-default">Guardar</button>
+	<div class="form-group">
+		<label>Usuario</label>
+		<select ng-model="post.userId"  class="form-control" required="required">
+			<option ng-repeat="user in users" value="{{user.id}}">
+				{{user.name}}
+			</option>
+		</select>
+	</div>
+  <button ng-click="savePost()" ng-disabled="createPostForm.$invalid" type="submit" class="btn btn-default">Guardar</button>
 </form>
 </div>

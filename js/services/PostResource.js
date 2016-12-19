@@ -7,6 +7,9 @@ appBlog.factory('postResource', function($http, webApiConfig){
 	return {
 		getAll : function() {
 			return $http.get(apiHost + 'posts');
+		},
+		save : function(post) {
+			return $http.post(apiHost + 'users', post);
 		}
 	};
 })
