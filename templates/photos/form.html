@@ -2,26 +2,23 @@
 	<h1>Crear <small>Foto</small></h1>
 </div>
 <div class="col-md-6">
-<form>
+<form name="create">
 	<div class="form-group">
 		<label>Titulo</label>
-		<input type="text" class="form-control" placeholder="Titulo" required="required"> 
+		<input ng-model="photo.title" type="text" class="form-control" placeholder="Titulo" required="required"> 
 	</div>
 	<div class="form-group">
 		<label for="exampleInputFile">Imagen</label>
-		<input type="file" id="exampleInputFile">
+		<input ng-model="photo.url" type="file" id="exampleInputFile">
 		<p class="help-block">Ingrese una imagen jpg</p>
 	</div>
 	<div class="form-group">
 		<label>Album</label>
-		<select class="form-control" required="required">
-			<option>1</option>
-			<option>2</option>
-			<option>3</option>
-			<option>4</option>
-			<option>5</option>
+		<select ng-model="photo.albumId"  class="form-control" required="required">
+			<option value="">Seleccione ...</option>
+			<option ng-repeat="model in albums" value="{{model.id}}">{{model.id+'# '+model.title}}</option>
 		</select>
 	</div>
-  <button type="submit" class="btn btn-default">Guardar</button>
+  <button ng-click="save()" ng-disabled="create.$invalid" type="submit" class="btn btn-default">Guardar</button>
 </form>
 </div>

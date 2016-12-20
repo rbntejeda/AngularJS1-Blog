@@ -8,6 +8,7 @@
 			<th>#</th>
 			<th>Titulo</th>
 			<th>Usuario</th>
+			<th>Fotos</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -15,6 +16,7 @@
 			<td>{{album.id}}</td>
 			<td>{{album.title}}</td>
 			<td>{{album.username}}</td>
+			<td><button type="button" ng-click="show(album.id)" class="btn  btn-sm btn-default">Mostrar</button></td>
 		</tr>
 	</tbody>
 </table>

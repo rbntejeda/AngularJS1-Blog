@@ -12,6 +12,9 @@ appBlog.factory('albumResource', function($http, webApiConfig){
 		save : function(model) {
 			console.log(model);
 			return $http.post(apiHost + base, model);
+		},
+		getPhotos : function(primaryKey) {
+			return $http.get(apiHost + base + '/' + primaryKey + '/photos');
 		}
 	};
 })

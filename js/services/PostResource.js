@@ -3,15 +3,17 @@
 appBlog.factory('postResource', function($http, webApiConfig){
 
 	var apiHost = webApiConfig.getApiUrl();
-	var base='posts';
+	var path='posts';
 
 	return {
 		getAll : function() {
-			return $http.get(apiHost + base);
+			return $http.get(apiHost + path);
 		},
 		save : function(model) {
-			console.log(model);
-			return $http.post(apiHost + base, model);
+			return $http.post(apiHost + path, model);
+		},
+		getComments : function(primaryKey) {
+			return $http.get(apiHost + path + '/' + primaryKey + '/comments');
 		}
 	};
 })

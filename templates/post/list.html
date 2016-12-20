@@ -6,17 +6,19 @@
 	<thead>
 		<tr>
 			<th>#</th>
-			<th>Titulo</th>
-			<th>Contenido</th>
 			<th>Usuario</th>
+			<th>Titulo</th>
+			<!-- <th>Contenido</th> -->
+			<th>Comentarios</th>
 		</tr>
 	</thead>
 	<tbody>
 		<tr ng-repeat="post in posts | filter:searchText">
 			<td>{{post.id}}</td>
 			<td>{{post.title}}</td>
-			<td>{{post.body}}</td>
+			<!-- <td>{{post.body}}</td> -->
 			<td>{{post.username}}</td>
+			<td><button type="button" ng-click="showComment(post.id)" class="btn  btn-sm btn-default">Mostrar</button></td>
 		</tr>
 	</tbody>
 </table>

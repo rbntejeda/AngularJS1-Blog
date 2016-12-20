@@ -97,3 +97,7 @@ div.mensaje.exito {
 .table {
 	margin-bottom: 10px;
 }
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}

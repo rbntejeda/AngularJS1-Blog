@@ -12,6 +12,12 @@ appBlog.factory('userResource', function($http, webApiConfig){
 		save : function(model) {
 			console.log(model);
 			return $http.post(apiHost + base, model);
+		},
+		getPosts : function(userId) {
+			return $http.get(apiHost + base + '/' + userId + '/posts');
+		},
+		getAlbums : function(userId) {
+			return $http.get(apiHost + base + '/' + userId + '/albums');
 		}
 	};
 })

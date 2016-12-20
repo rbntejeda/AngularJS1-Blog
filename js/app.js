@@ -1,6 +1,6 @@
 'use strict';
 // define el primeraApp modulo
-var appBlog = angular.module('appBlog', [/*'ui.bootstrap',*/'ngRoute'])
+var appBlog = angular.module('appBlog', ['ui.bootstrap','ngRoute','ngAnimate'])
 	.config(function($routeProvider) {
 
 		// User
@@ -88,7 +88,12 @@ var appBlog = angular.module('appBlog', [/*'ui.bootstrap',*/'ngRoute'])
 		//Photos
 		.when('/Photos/Create', {
 			templateUrl : 'templates/photos/form.html',
-			controller : 'CreatePhotoController'
+			controller : 'CreatePhotoController',			
+			resolve: {
+				albums : function(albumResource) {
+					return albumResource.getAll();
+				}
+			}
 		})
 		.when('/Photos/List', {
 			templateUrl : 'templates/photos/list.html',

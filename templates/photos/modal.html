@@ -1,0 +1,16 @@
+<div class="modal-header">
+	<button  type="button" class="close" data-dismiss="modal" aria-label="Close" ng-click="cancel()"><span aria-hidden="true">&times;</span></button>
+	<h1 class="modal-title">Administrar <small>Imagenes</small></h1>
+</div>
+<div class="modal-body">
+<div class="row">
+<div class="col-md-3" ng-repeat="model in list | limitTo : 16" >
+	<h5 class="lead" ng-bind="model.id+'# Album '+model.title | limitTo : 16"></h5>
+	<p class="lead" ng-bind="model.title | limitTo:12"></p>
+	<img ng-src="{{model.thumbnailUrl}}" alt="{{model.title}}" class="img-rounded">
+</div>
+</div>
+</div>
+<div class="modal-footer">
+	<button type="button" class="btn btn-primary" ng-click="cancel()">Cerrar</button>
+</div>

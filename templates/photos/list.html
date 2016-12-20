@@ -6,5 +6,5 @@
 
 	<h5 class="lead" ng-bind="model.id+'# Album '+model.title"></h5>
 	<p class="lead" ng-bind="model.title | limitTo:12"></p>
-	<img src="{{model.thumbnailUrl}}" alt="{{model.title}}" class="img-rounded">
+	<img ng-src="{{model.thumbnailUrl}}" alt="{{model.title}}" class="img-rounded">
 </div>
