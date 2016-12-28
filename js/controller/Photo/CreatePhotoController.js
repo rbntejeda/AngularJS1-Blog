@@ -1,5 +1,5 @@
 'use strict';
-appBlog.controller('CreatePhotoController', function($scope, photoResource, $route, $location){
+appBlog.controller('CreatePhotoController',['$scope', 'photoResource', '$route', '$location', function($scope, photoResource, $route, $location){
 		// $scope.users = $route.current.locals.users;
 		// console.log($route.current.locals.users);
 	$scope.albums = $route.current.locals.albums.data;
@@ -12,4 +12,4 @@ appBlog.controller('CreatePhotoController', function($scope, photoResource, $rou
 			.catch(function(response){
 			})
 	};
-});
+}]);

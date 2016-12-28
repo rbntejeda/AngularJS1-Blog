@@ -1,5 +1,5 @@
 'use strict';
-appBlog.controller('ListPhotosController', function($scope, photoResource, $route){
+appBlog.controller('ListPhotosController', ['$scope', 'photoResource', '$route', function($scope, photoResource, $route){
 		// $scope.models = $route.current.locals.models.data;
 	var photos = $route.current.locals.photos.data;
 	var albums = $route.current.locals.albums.data;
@@ -10,4 +10,4 @@ appBlog.controller('ListPhotosController', function($scope, photoResource, $rout
 	});
 
 	$scope.photos = photos;
-});
+}]);

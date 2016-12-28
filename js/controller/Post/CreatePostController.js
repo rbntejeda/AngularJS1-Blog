@@ -1,5 +1,5 @@
 'use strict';
-appBlog.controller('CreatePostController', function( $scope, postResource, $route, $location){
+appBlog.controller('CreatePostController',[ '$scope', 'postResource', '$route', '$location', function( $scope, postResource, $route, $location){
 	$scope.users = $route.current.locals.users.data;
 	$scope.post = { };
 		
@@ -12,4 +12,4 @@ appBlog.controller('CreatePostController', function( $scope, postResource, $rout
 
 			})
 	};
-});
+}]);

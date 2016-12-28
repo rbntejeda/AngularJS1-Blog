@@ -1,5 +1,5 @@
 'use strict';
-appBlog.controller('ListAlbumsController', function($scope, albumResource, $route, $uibModal){
+appBlog.controller('ListAlbumsController', ['$scope', 'albumResource', '$route', '$uibModal', function($scope, albumResource, $route, $uibModal){
 	// $scope.models = $route.current.locals.models.data;
 	var albums = $route.current.locals.albums.data;
 	var users = $route.current.locals.users.data;
@@ -18,10 +18,10 @@ appBlog.controller('ListAlbumsController', function($scope, albumResource, $rout
 			scope : $scope,
 			size : 'lg',
 			resolve: {
-				list: function (albumResource) {
+				list: ['albumResource',function (albumResource) {
 					return albumResource.getPhotos(primaryKey);
-				}
+				}]
 			}
 		});			
 	};
-});
+}]);

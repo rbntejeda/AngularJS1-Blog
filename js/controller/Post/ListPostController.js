@@ -1,5 +1,5 @@
 'use strict';
-appBlog.controller('ListPostController', function($scope, postResource, $route, $uibModal){
+appBlog.controller('ListPostController', ['$scope', 'postResource', '$route', '$uibModal', function($scope, postResource, $route, $uibModal){
 	var posts = $route.current.locals.posts.data;
 	var users = $route.current.locals.users.data;
 
@@ -16,16 +16,16 @@ appBlog.controller('ListPostController', function($scope, postResource, $route, 
 			scope : $scope,
 			size : 'lg',
 			resolve: {
-				list: function (postResource) {
+				list: ['postResource', function (postResource) {
 					return postResource.getComments(primaryKey);
-				}
+				}]
 			}
 		});			
 	};
-})
-.controller('modalController',function($scope, $uibModalInstance, list){
+}])
+.controller('modalController',['$scope', '$uibModalInstance', 'list', function($scope, $uibModalInstance, list){
 	$scope.list = list.data;
 	$scope.cancel = function () {
 		$uibModalInstance.dismiss('cancel');
 	};	
-});
+}]);

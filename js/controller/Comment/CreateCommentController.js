@@ -1,5 +1,5 @@
 'use strict';
-appBlog.controller('CreateCommentController', function($scope, commentResource, $route, $location){
+appBlog.controller('CreateCommentController', ['$scope', 'commentResource', '$route', '$location', function($scope, commentResource, $route, $location){
 		// $scope.users = $route.current.locals.users;
 		// console.log($route.current.locals.users);
 		$scope.posts = $route.current.locals.posts.data;
@@ -14,4 +14,4 @@ appBlog.controller('CreateCommentController', function($scope, commentResource, 
 
 			})
 		};
-});
+}]);

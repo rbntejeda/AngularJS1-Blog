@@ -1,23 +1,26 @@
 'use strict';
 
-appBlog.factory('userResource', function($http, webApiConfig){
+appBlog.factory('userResource', ['$http', 'webApiConfig','tokenStorageService', function($http, webApiConfig,tokenStorageService){
 
 	var apiHost = webApiConfig.getApiUrl();
 	var base='users';
 
 	return {
 		getAll : function() {
-			return $http.get(apiHost + base);
+			var token = tokenStorageService.get();
+			return $http.get(apiHost + base, { "headers" : { "Authorization" : "Bearer " + token } });
 		},
 		save : function(model) {
-			console.log(model);
-			return $http.post(apiHost + base, model);
+			var token = tokenStorageService.get();
+			return $http.post(apiHost + base, model, { "headers" : { "Authorization" : "Bearer " + token } });
 		},
 		getPosts : function(userId) {
-			return $http.get(apiHost + base + '/' + userId + '/posts');
+			var token = tokenStorageService.get();
+			return $http.get(apiHost + base + '/' + userId + '/posts', { "headers" : { "Authorization" : "Bearer " + token } });
 		},
 		getAlbums : function(userId) {
-			return $http.get(apiHost + base + '/' + userId + '/albums');
+			var token = tokenStorageService.get();
+			return $http.get(apiHost + base + '/' + userId + '/albums', { "headers" : { "Authorization" : "Bearer " + token } });
 		}
 	};
-})
+}])

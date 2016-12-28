@@ -1,5 +1,5 @@
 'use strict';
-appBlog.controller('CreateUserController', function( $scope, userResource, $route, $location){
+appBlog.controller('CreateUserController',['$scope', 'userResource', '$route', '$location', function( $scope, userResource, $route, $location){
 	$scope.user;
 
 	$scope.save = function(){
@@ -11,4 +11,4 @@ appBlog.controller('CreateUserController', function( $scope, userResource, $rout
 
 			})
 	};
-});
+}]);

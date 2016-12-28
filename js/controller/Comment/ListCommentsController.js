@@ -1,5 +1,5 @@
 'use strict';
-appBlog.controller('ListCommentsController', function($scope, commentResource, $route){
+appBlog.controller('ListCommentsController',['$scope', 'commentResource', '$route', function($scope, commentResource, $route){
 		// $scope.models = $route.current.locals.models.data;
 	var comments = $route.current.locals.comments.data;
 	var posts = $route.current.locals.posts.data;
@@ -10,4 +10,4 @@ appBlog.controller('ListCommentsController', function($scope, commentResource, $
 	});
 	
 	$scope.comments = comments;
-});
+}]);

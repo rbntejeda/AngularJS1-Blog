@@ -1,6 +1,6 @@
 'use strict';
 appBlog
-.controller('ListUsersController', function($scope, userResource, $route, $uibModal){
+.controller('ListUsersController',['$scope', 'userResource', '$route', '$uibModal', function($scope, userResource, $route, $uibModal){
 	$scope.users = $route.current.locals.users.data;
 
 	$scope.getPosts = function(userId) {
@@ -10,9 +10,9 @@ appBlog
 			scope : $scope,
 			size : 'lg',
 			resolve: {
-				posts: function (userResource) {
+				posts: ['userResource', function (userResource) {
 					return userResource.getPosts(userId);
-				}
+				}]
 			}
 		});			
 	};
@@ -23,22 +23,22 @@ appBlog
 			scope : $scope,
 			size : 'lg',
 			resolve: {
-				albums: function (userResource) {
+				albums: ['userResource',function (userResource) {
 					return userResource.getAlbums(userId);
-				}
+				}]
 			}
 		});			
 	};
-})
-.controller('GetUserPostsController', function($scope, $uibModalInstance, posts){
+}])
+.controller('GetUserPostsController', ['$scope', '$uibModalInstance', 'posts' ,function($scope, $uibModalInstance, posts){
 	$scope.posts = posts.data;
 	$scope.cancel = function () {
 		$uibModalInstance.dismiss('cancel');
 	};
-})
-.controller('GetUserAlbumsController', function($scope, $uibModalInstance, albums){
+}])
+.controller('GetUserAlbumsController', ['$scope', '$uibModalInstance', 'albums', function($scope, $uibModalInstance, albums){
 	$scope.albums = albums.data;
 	$scope.cancel = function () {
 		$uibModalInstance.dismiss('cancel');
 	};
-});
+}]);
