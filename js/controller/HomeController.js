@@ -6,7 +6,7 @@ appBlog.controller('HomeController', ['$scope', 'tokenStorageService', '$window'
 
 	$scope.logout = function() {
 		tokenStorageService.remove();
-		toastr.warning('HOla', 'Warning');
+		toastr.warning('Token Borrado', 'Warning');
 		// $window.location.href = "login/";
 	}
 	$scope.reLogin = function(/*primaryKey*/) {

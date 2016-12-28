@@ -4,7 +4,7 @@ appBlog.factory('webApiConfig', [function(){
 
 	var apiHost = 'http://localhost/rest/web/';
 	var tokenEndPoint = 'oauth2/token';
-	var apiEndPoint = 'api/';
+	var apiEndPoint = 'v1/';
 
 	return {
 		getApiUrl : function() {

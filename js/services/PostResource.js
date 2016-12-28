@@ -3,7 +3,7 @@
 appBlog.factory('postResource', ['$http', 'webApiConfig','tokenStorageService', function($http, webApiConfig,tokenStorageService){
 
 	var apiHost = webApiConfig.getApiUrl();
-	var path='post';
+	var path='posts';
 
 	return {
 		getAll : function() {
